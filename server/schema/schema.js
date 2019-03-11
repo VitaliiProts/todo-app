@@ -9,7 +9,6 @@ const ListType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    genre: { type: GraphQLString },
   })
 });
 
@@ -20,14 +19,12 @@ const RootQuery = new GraphQLObjectType({
       type: ListType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // return lodash.find(books, { id: args.id });
         return List.findById(args.id);
       }
     },
     lists: {
       type: new GraphQLList(ListType),
       resolve(parent, args) {
-        // return books;
         return List.find({});
       }
     }
@@ -42,16 +39,14 @@ const Mutation = new GraphQLObjectType({
       type: ListType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
-        genre: { type: new GraphQLNonNull(GraphQLString) },
       },
       resolve(parent, args) {
         let list = new List({
           name: args.name,
-          genre: args.genre,
         });
         return list.save();
       }
-    }
+    },
   }
 })
 
