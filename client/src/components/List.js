@@ -10,15 +10,13 @@ class List extends Component {
     } else {
       return data.lists.map(list => {
         return (
-          <li key={ list.id }>
-            { list.name }
-            <button>x</button>
-          </li>
+          <li key={ list.id }>{ list.name }</li>
         )
       });
     }
   }
   render() {
+    console.log(this.props);
     return (
       <div>
         <ul id='item-list'>

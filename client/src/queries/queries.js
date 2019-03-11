@@ -16,6 +16,6 @@ const addListMutation = gql`
       id
     }
   }
-` 
+`;
 
 export { getListsQuery, addListMutation } ;
