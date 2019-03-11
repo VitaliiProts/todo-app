@@ -5,6 +5,6 @@
  - graphql server
 # datebase
  - mongodb (mLab)
-# Ckient
+# Client
  - React
  - Apollo
